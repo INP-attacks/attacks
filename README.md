@@ -15,7 +15,7 @@ Please replace:
 * [INT_PORT] with the internal port to use in the port forwarding rule to add.
 * [INT_HOST] with the internal IP to use in the port forwarding rule to add.
 
-### Scanning for an HTTP endpoint - upnpPortChecker.html
+### Scanning for an HTTP endpoint - [upnpPortChecker.html](https://github.com/INP-attacks/attacks/blob/master/attack1.html)
 In Appendix A, we show how we can expand Attack I, to work with routers whouse UPnP port is randomized. As an example, we show here a HTML page which scans a specific HTTP endpoint (which can of course be a UPnP server), and sends thes scan's result to an external server of the attacker.
 
 * [ROUTER_INTERNAL_URL] with the internal IP of the device to scan.
@@ -23,7 +23,7 @@ In Appendix A, we show how we can expand Attack I, to work with routers whouse U
 * [ATTACKER_SERVER] with the IP of an attacker's server, to send the result to.
 
 
-## Attack II - attack2.html
+## Attack II - [attack2.html](https://github.com/INP-attacks/attacks/blob/master/attack2.html)
 
 The attack will send a crafted HTTP request by the user (currently a POST one) with [DATA] in its body, to the IoT device's HTTP server with URL [IOT_WEBSERVER_URL].
 
@@ -31,7 +31,7 @@ Please replace:
 * [IOT_WEBSERVER_URL] with the URL of the IoT URL to attack.
 * [DATA] with the crafted mailcious body of the HTTP request.
 
-## Attack III - attack3.html
+## Attack III - [attack3.html](https://github.com/INP-attacks/attacks/blob/master/attack3.html)
 
 The attack will use HTML form to login to the router with URL [ROUTER_LOGIN_LOCATION], with username [LOGIN_USERNAME] and password [LOGIN_PASSWORD]. Then it will redirect the user to the AP List page in URL [ROUTER_AP_LIST_LOCATION].
 
