@@ -1,6 +1,6 @@
 # attacks
 Samples of the attacks presented in our paper.
-These not represent the full flows we demonstrated, but basic implementation of their main parts.
+These not represent the full flows we demonstrated, but basic implementation of their main parts (the HTML pages which the victim's browser receive from evil.com).
 We do not publish here the URLs and technical details of specific vendors, as part of the responsible vulnerability disclosure process.
 
 ## Attack I - [attack1.html](https://github.com/INP-attacks/attacks/blob/master/attack1.html)  
@@ -15,7 +15,7 @@ Please replace:
 * [INT_PORT] with the internal port to use in the port forwarding rule to add.
 * [INT_HOST] with the internal IP to use in the port forwarding rule to add.
 
-### Scanning for an HTTP endpoint - [upnpPortChecker.html](https://github.com/INP-attacks/attacks/blob/master/attack1.html)
+### Scanning for an HTTP endpoint - [upnpPortChecker.html](https://github.com/INP-attacks/attacks/blob/master/upnpPortChecker.html)
 In Appendix A, we show how we can expand Attack I, to work with routers whouse UPnP port is randomized. As an example, we show here a HTML page which scans a specific HTTP endpoint (which can of course be a UPnP server), and sends thes scan's result to an external server of the attacker.
 
 * [ROUTER_INTERNAL_URL] with the internal IP of the device to scan.
