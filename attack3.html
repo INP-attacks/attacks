@@ -1,0 +1,21 @@
+<html>
+<body>
+  
+  <form name="login_form" action="http://[ROUTER_LOGIN_LOCATION]" method="POST">
+    <input type="hidden" name="[LOGIN_USERNAME_VAR]" value="[LOGIN_USERNAME]">
+    <input type="hidden" name="[LOGIN_PASSWORD_VAR]" value="[LOGIN_PASSWORD]">
+  </form>
+
+  <script type="text/javascript">
+	
+	function router(){
+	
+		document.login_form.submit() // Login to router
+		document.location = "http://[ROUTER_AP_LIST_LOCATION]"; // Redirect to AP List page
+	}
+	
+	router()
+  
+  </script>
+</body>
+</html>

